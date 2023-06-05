@@ -32,7 +32,7 @@
         
         <div class="form-group col-md-6">
           <label for="inputPassword4">Comapny</label>
-          <select name="company_id" id="" class="form-control">
+          <select name="company_id" id="" class="form-control" required>
             <option >Select one</option>
             @forelse ($companies as $item)
                 
