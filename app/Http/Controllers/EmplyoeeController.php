@@ -86,9 +86,8 @@ class EmplyoeeController extends Controller
 
         return redirect()->back()->with('success', 'emplyoee Updated Successfully');
     }
-    public function deleteemployee(Request $request)
+    public function deleteemployee(Request $request,$id)
     {
-        $id = $request->id;
         $emplyoee = Employee::find($id);
         $emplyoee->delete();
         if (session()->has('user')) {
