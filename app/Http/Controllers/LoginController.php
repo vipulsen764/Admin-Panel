@@ -20,13 +20,19 @@ class LoginController extends Controller
        return view('admin.adminlogin');
     }
 
-    public function checklogin(Request $request)
+     public function checklogin(Request $request)
     {
-        $check = User::where($request->email)->first();
+        $check = User::where('email',$request->email)->first();
         if(isset($check)){
-            session()->put('user', $check->id);
-            session()->put('username', $check->name);
-            return redirect()->route('companies');
+            if($check->password == $request->password){
+
+                session()->put('user', $check->id);
+                session()->put('username', $check->name);
+                return redirect()->route('companies');
+            }else{
+
+                return redirect()->back()->with('error','Incorrect Password');
+            }
         }else {
             return redirect()->back()->with('error','User not found');
         }
