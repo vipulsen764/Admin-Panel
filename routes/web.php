@@ -42,7 +42,7 @@ Route::get('/addemployee', [EmplyoeeController::class, 'addemployee'])->name('ad
 Route::post('/addemployee', [EmplyoeeController::class, 'addemployeedata'])->name('addemployeedata');
 Route::get('/editemployee/{id}', [EmplyoeeController::class, 'editemployee'])->name('editemployee');
 Route::post('/editemployee', [EmplyoeeController::class, 'editemployeedata'])->name('editemployeedata');
-Route::get('/deleteemployee', [EmplyoeeController::class, 'deleteemployee'])->name('deleteemployee');
+Route::get('/deleteemployee/{id}', [EmplyoeeController::class, 'deleteemployee'])->name('deleteemployee');
 
 
 Route::get('image-crop', [CompanyController::class, 'imagedata']);
